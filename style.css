@@ -1,11 +1,44 @@
-/* CSS files add styling rules to your content */
-
 body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
+  background-color: #000;
+  font-family: 'Press Start 2P', cursive; 
+  color: #FFF;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+.selected {
+  background-color: orange;
+  color: #FFF;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+ 
+header h1 {
+  font-size: 4rem;
+  color: #00FF00;
+}
+
+header a {
+  color: #3b4ea1;
+  text-decoration: none;
+}
+
+nav {
+  font-size: 2rem;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  margin: 2rem;
+}
+
+.game-list a{
+  text-decoration: none;
+ padding: 1rem; 
+  color: #657cbd;
 }
