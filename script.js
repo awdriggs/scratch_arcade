@@ -1,3 +1,27 @@
+const games = [ 
+  {title:'frogger', src:'games/frogger22.html', author:'adam', img: 'test.jpg'},
+  {title:'frogger2', src:'games/frogger22.html', author:'adam', img: 'test.jpg'},
+]
+
+var current = 0;
+//on load
+
+//test updating the card...
+window.onload = function(){
+  update(current);
+}
+ 
+//update function, update the card!
+function update(index){
+  console.log('update');
+  //update the main card
+  var card = document.querySelector(".game-card");
+  card.querySelector('h3').innerText = games[current].title; 
+  card.querySelector('p').innerText = games[current].author;
+
+}
+
+/*
 console.log('working');
 
 window.onload = function(){
@@ -5,15 +29,15 @@ window.onload = function(){
   //get all the links
   // document.getElemen
   document.querySelector('.game').classList.add('selected');
-  //add an event listener for the keyboard
+//add an event listener for the keyboard
   document.addEventListener("keyup", function(e){
     console.log('key', e.keyCode, e.key);
-    //select the first list item inside the nav class
-    //add the class of curent
-    //if the key is up
-      //remove the selected class from the current list item that has it
-      //if the first is already selected, move to the last item
-      //move up one list item
+//select the first list item inside the nav class
+//add the class of curent
+//if the key is up
+//remove the selected class from the current list item that has it
+//if the first is already selected, move to the last item
+//move up one list item
     var links = document.getElementsByClassName('game');
     var current;
 
@@ -21,7 +45,7 @@ window.onload = function(){
       if(links[i].classList.contains('selected')){
         console.log(i);
         current = i;
-      } 
+      }
     }
 
     if(e.keyCode == 38 || e.key == "ArrowUp"){
@@ -43,14 +67,14 @@ window.onload = function(){
         links[current + 1].classList.add('selected');
       }
     }
-    //if the key is down
-      //remove the selected class fromt he current list item that has it
-      //if at the last item, move to the first
-      //otherwise move down one list item
+//if the key is down
+//remove the selected class fromt he current list item that has it
+//if at the last item, move to the first
+//otherwise move down one list item
 
-    //if the enter key is hti, keyCode 13
-      //get the href of the a that is selected
-      //send the window to that location
+//if the enter key is hti, keyCode 13
+//get the href of the a that is selected
+//send the window to that location
     if(e.keyCode == 65 || e.key == "a"){
       console.log('enter');
       var url = links[current].getAttribute('href')
@@ -64,3 +88,4 @@ window.onload = function(){
 
   });
 }
+*/

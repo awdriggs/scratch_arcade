@@ -42,3 +42,7 @@ nav ul li {
  padding: 1rem; 
   color: #657cbd;
 }
+
+.game-card {
+  border: 1px solid #00FF00;
+}
