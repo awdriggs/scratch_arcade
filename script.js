@@ -1,83 +1,66 @@
 const games = [ 
-  {title:'frogger', src:'games/frogger22.html', author:'adam', img: 'test.jpg'},
-  {title:'frogger2', src:'games/frogger22.html', author:'adam', img: 'test.jpg'},
+  {title:'Frogger', src:'games/frogger22.html', author:'adam', img: 'test.jpg'},
+  {title:'Flappy Bird', src:'games/flappybird.html', author:'Izabella', img: 'test.jpg'},
+  {title:'Slide Box', src:'games/slide-box.html', author:'Mokhina and Jaelyn', img: 'test.jpg'},
+  {title:'Anti Gravity Chase', src:'games/Anti_gravity_Chase.html', author:'Julie, Caspia, Emma, and Isla', img: 'test.jpg'},
+  {title:'Frogger', src:'games/ada_frogger.html', author:'Ada', img: 'test.jpg'},
+  {title:'Lightning Run', src:'games/akira_lightingrun.html', author:'Akira', img: 'test.jpg'},
+  {title:'Dino Dash', src:'games/Daisy_Dino_Madness.html', author:'Daisy', img: 'test.jpg'},
+  {title:'Devin Wants Bread', src:'games/Devin_wants_bread_Dashiell.html', author:'Dashiell', img: 'test.jpg'},
+  {title:'Doughnut Maze', src:'games/Doughnut_Maze.html', author:'???', img: 'test.jpg'},
+  {title:'Fairy Forest', src:'games/FairyForest.html', author:'Georgia?', img: 'test.jpg'},
+  {title:'Fairy Forest', src:'games/FairyForest.html', author:'Georgia?', img: 'test.jpg'},
+  {title:'Flappy Bird', src:'games/flappy_jehan.html', author:'Jehan', img: 'test.jpg'},
+  {title:'Frog Night', src:'games/Frog_Knight.html', author:'???', img: 'test.jpg'},
+  {title:'Find the Ball', src:'games/Jemma_FindTheBall.html', author:'Jemma', img: 'test.jpg'},
+  {title:'Mario, but Bad', src:'games/MarioButBad.html', author:'???', img: 'test.jpg'},
+  {title:'Maze!', src:'games/Maze!.html', author:'???', img: 'test.jpg'},
+  {title:'Maze', src:'games/MAZE.html', author:'Fern?', img: 'test.jpg'},
+  {title:'Snake', src:'games/snake.html', author:'???', img: 'test.jpg'},
+  {title:"Bob's Pellets", src:'games/bobs_pellets.html', author:'???', img: 'test.jpg'},
+  {title:"Once Upon a Rumple", src:'games/once_upon_a_rumple.html', author:'???', img: 'test.jpg'},
+  {title:"Space Chase", src:'games/space_chase.html', author:'???', img: 'test.jpg'},
+  {title:"Duck the Duck", src:'games/duck_the_duck.html', author:'???', img: 'test.jpg'},
+  {title:"Undertale Fan Game", src:'games/yerik.html', author:'Yerik', img: 'test.jpg'},
+  {title:"Captain Marvel vs. Scarlett Witch", src:'games/CaptinMarvelVSScarlettWitch.html', author:'Zosia', img: 'test.jpg'},
 ]
 
 var current = 0;
-//on load
 
-//test updating the card...
 window.onload = function(){
   update(current);
-}
- 
-//update function, update the card!
-function update(index){
-  console.log('update');
-  //update the main card
-  var card = document.querySelector(".game-card");
-  card.querySelector('h3').innerText = games[current].title; 
-  card.querySelector('p').innerText = games[current].author;
 
-}
-
-/*
-console.log('working');
-
-window.onload = function(){
-  //make the first link the selected on by default
-  //get all the links
-  // document.getElemen
-  document.querySelector('.game').classList.add('selected');
-//add an event listener for the keyboard
   document.addEventListener("keyup", function(e){
-    console.log('key', e.keyCode, e.key);
-//select the first list item inside the nav class
-//add the class of curent
-//if the key is up
-//remove the selected class from the current list item that has it
-//if the first is already selected, move to the last item
-//move up one list item
-    var links = document.getElementsByClassName('game');
-    var current;
+  console.log('key', e.keyCode, e.key);
+   
+    console.log("before", current);
 
-    for(var i = 0; i < links.length; i++){
-      if(links[i].classList.contains('selected')){
-        console.log(i);
-        current = i;
-      }
-    }
-
-    if(e.keyCode == 38 || e.key == "ArrowUp"){
-      //remove the class on current link
-      links[current].classList.remove('selected');
+    if(e.keyCode == 37 || e.key == "ArrowLeft"){
+      console.log("left"); 
       if(current == 0){
-       links[links.length-1].classList.add('selected');
+        current = games.length-1;
       } else {
-        links[current - 1].classList.add('selected');
+        current--;
       }
     }
 
-    if(e.keyCode == 40 || e.key == "ArrowDown"){
+    if(e.keyCode == 39 || e.key == "ArrowRight"){
       //remove the class on current link
-      links[current].classList.remove('selected');
-      if(current == links.length-1){
-       links[0].classList.add('selected');
+      // links[current].classList.remove('selected');
+      if(current == games.length-1){
+       // links[0].classList.add('selected');
+        current = 0;
       } else {
-        links[current + 1].classList.add('selected');
+        current++;
       }
     }
-//if the key is down
-//remove the selected class fromt he current list item that has it
-//if at the last item, move to the first
-//otherwise move down one list item
 
-//if the enter key is hti, keyCode 13
-//get the href of the a that is selected
-//send the window to that location
+    console.log("after", current);
+    update(current);
+
     if(e.keyCode == 65 || e.key == "a"){
       console.log('enter');
-      var url = links[current].getAttribute('href')
+      var url = games[current].src;
       window.location.assign(url);
     }
 
@@ -85,7 +68,15 @@ window.onload = function(){
       console.log('escape to reload');
       location.reload();
     }
-
   });
 }
-*/
+ 
+//update function, update the card!
+function update(index){
+  console.log('update');
+  //update the main card
+  var card = document.querySelector(".game-card");
+  card.querySelector('a').href = games[current].src;
+  card.querySelector('h3').innerText = games[current].title; 
+  card.querySelector('p').innerText = games[current].author;
+}
